@@ -76,8 +76,8 @@ Window::Window
         CHECK_FAIL( "Could not initialize OpenGl Context" );
     }
 
-    //// Disable vsync
-    ////glfwSwapInterval( 0	); 
+    // Disable vsync
+    glfwSwapInterval( 0	); 
 
     // Print various OpenGL information to stdout
     printf("%s: %s\n",      glGetString(GL_VENDOR), glGetString(GL_RENDERER));
