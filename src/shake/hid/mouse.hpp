@@ -2,7 +2,7 @@
 #define MOUSE_HPP
 
 #include "shake/core/data_structures/string.hpp"
-#include "shake/core/types/macro_non_copyable.hpp"
+#include "shake/core/macros/macro_non_copyable.hpp"
 
 #include "shake/hid/window.hpp"
 

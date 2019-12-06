@@ -1,8 +1,5 @@
-
 #include "window.hpp"
 
-// System headers
-#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include "shake/core/log.hpp"
@@ -71,10 +68,6 @@ Window::Window
 
     // Let the window be the current OpenGL context and initialise glad
     glfwMakeContextCurrent(m_window);
-    if ( !gladLoadGLLoader( ( GLADloadproc ) get_glfw_gl_load_proc() ) )
-    {
-        CHECK_FAIL( "Could not initialize OpenGl Context" );
-    }
 
     // Disable vsync
     glfwSwapInterval( 0	); 
@@ -90,9 +83,9 @@ Window::Window
     ////glDebugMessageCallback( (GLDEBUGPROC) graphics::gl::debug_message::callback, 0 );
 }
 
-GLLoadProc Window::get_glfw_gl_load_proc() const 
+LoaderFunctionAddress Window::get_glfw_gl_load_proc() const 
 {
-    return ( GLLoadProc ) glfwGetProcAddress;
+    return ( LoaderFunctionAddress ) glfwGetProcAddress;
 }
 
 //----------------------------------------------------------------

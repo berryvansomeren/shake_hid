@@ -4,13 +4,13 @@
 #include <cstdint>
 #include <string>
 
-#include "shake/core/types/macro_non_copyable.hpp"
+#include "shake/core/macros/macro_non_copyable.hpp"
 
 class GLFWwindow;
 
 namespace shake {
 
-using GLLoadProc = void* (*) ( const char* );
+using LoaderFunctionAddress = void* (*) ( const char* name );
 
 class Window
 {
@@ -31,7 +31,7 @@ public:
     bool        get_should_close() const;
     void        set_should_close();
 
-    GLLoadProc  get_glfw_gl_load_proc() const;
+    LoaderFunctionAddress  get_glfw_gl_load_proc() const;
 
     GLFWwindow* get_glfw_window_ptr() const;
 
