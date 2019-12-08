@@ -103,6 +103,12 @@ void Window::set_should_close()         { glfwSetWindowShouldClose(m_window, GL_
 GLFWwindow* Window::get_glfw_window_ptr() const { return m_window; }
 
 //----------------------------------------------------------------
+void Window::poll_events()
+{
+    glfwPollEvents();
+}
+
+//----------------------------------------------------------------
 void Window::swap_buffers() { glfwSwapBuffers(m_window); }
 
 } // namespace shake
