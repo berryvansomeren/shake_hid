@@ -4,7 +4,7 @@
 
 #include "shake/core/contracts/contracts.hpp"
 #include "shake/core/signal.hpp"
-#include "shake/core/data_structures/string.hpp"
+#include "shake/core/std/string.hpp"
 
 namespace shake {
 

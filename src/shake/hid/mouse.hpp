@@ -1,7 +1,7 @@
 #ifndef MOUSE_HPP
 #define MOUSE_HPP
 
-#include "shake/core/data_structures/string.hpp"
+#include "shake/core/std/string.hpp"
 #include "shake/core/macros/macro_non_copyable.hpp"
 
 #include "shake/hid/window.hpp"

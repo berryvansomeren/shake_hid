@@ -3,9 +3,9 @@
 #include <GLFW/glfw3.h>
 
 #include "shake/core/contracts/contracts.hpp"
-#include "shake/core/data_structures/dual_key_map.hpp"
+#include "shake/core/std/dual_key_map.hpp"
 #include "shake/core/signal.hpp"
-#include "shake/core/data_structures/string.hpp"
+#include "shake/core/std/string.hpp"
 
 namespace shake {
 
