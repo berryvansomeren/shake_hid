@@ -26,7 +26,7 @@ Window::Window
     const uint16_t      height,
     const std::string&  title,
     const bool          is_resizable,
-    const size_t          window_samples
+    const size_t        window_samples
 )
 {
     // Initialise GLFW
@@ -40,15 +40,14 @@ Window::Window
     glfwSetErrorCallback(glfwErrorCallback);
 
     // Set core window options (adjust version numbers if needed)
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 4 );
+    glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 6 );
+    glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
 
     // Set additional window options
-    glfwWindowHint(GLFW_RESIZABLE, is_resizable);
-    glfwWindowHint(GLFW_SAMPLES, window_samples);  // MSAA
-    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
-
+    glfwWindowHint( GLFW_RESIZABLE, is_resizable );
+    glfwWindowHint( GLFW_SAMPLES, window_samples );  // MSAA
+    glfwWindowHint( GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE );
 
     // Create window using GLFW
     m_window = glfwCreateWindow
@@ -61,9 +60,8 @@ Window::Window
     // Ensure the window is set up correctly
     if (!m_window)
     {
-        fprintf(stderr, "Could not open GLFW window\n");
         glfwTerminate();
-        exit(EXIT_FAILURE);
+        CHECK_FAIL( "Could not open GLFW window" );
     }
 
     // Let the window be the current OpenGL context and initialise glad
@@ -72,15 +70,7 @@ Window::Window
     // Disable vsync
     glfwSwapInterval( 0	); 
 
-    // Print various OpenGL information to stdout
-    //printf("%s: %s\n",      glGetString(GL_VENDOR), glGetString(GL_RENDERER));
-    //printf("GLFW\t %s\n",   glfwGetVersionString());
-    //printf("OpenGL\t %s\n", glGetString(GL_VERSION));
-    //printf("GLSL\t %s\n\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
-
-    ////// enable debug output
-    //glEnable              ( GL_DEBUG_OUTPUT );
-    ////glDebugMessageCallback( (GLDEBUGPROC) graphics::gl::debug_message::callback, 0 );
+    LOG( std::string { "GLFW version " } + glfwGetVersionString() );
 }
 
 LoaderFunctionAddress Window::get_glfw_gl_load_proc() const 

@@ -35,8 +35,7 @@ public:
 
     GLFWwindow* get_glfw_window_ptr() const;
 
-
-    void poll_events();
+    void        poll_events();
 
     void        swap_buffers();
 
